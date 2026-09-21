@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="太阳能组件板回收专业平台，提供光伏组件拆解、硅片提纯、银浆回收及环保处理服务。了解光伏板回收流程、环保政策及安全注意事项，助力绿色能源循环经济。">
+    <meta name="keywords" content="太阳能组件板回收,光伏板回收,废旧太阳能电池板处理,光伏组件拆解,硅片回收,银浆回收">
+    <title>太阳能组件板回收-专业光伏废料处理与资源循环利用平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00796b;
+            --primary-dark: #004d40;
+            --accent-color: #ffb74d;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone-number {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 77, 64, 0.85), rgba(0, 77, 64, 0.7)), url('https://picsum.photos/seed/solarpanel/1920/1080.jpg') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 40px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+        }
+
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #e0e0e0;
+            z-index: 0;
+        }
+
+        .process-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            background: var(--white);
+            padding: 20px;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--bg-light);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .process-step h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .service-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .service-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 12px;
+            padding: 50px;
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .quote-text h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .quote-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .quote-form {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 400px;
+            color: var(--text-main);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--white);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .faq-answer p {
+            padding: 20px 0;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.5rem; }
+            .process-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .process-grid::before { display: none; }
+            .service-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper { flex-direction: column; height: auto; padding: 15px 0; }
+            nav ul { margin: 15px 0; gap: 15px; font-size: 0.9rem; }
+            .header-contact { display: none; }
+            .hero { height: 500px; }
+            .hero h1 { font-size: 2rem; }
+            .process-grid { grid-template-columns: 1fr; }
+            .service-grid { grid-template-columns: 1fr; }
+            .quote-box { flex-direction: column; text-align: center; }
+            .quote-form { width: 100%; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>☀</span> 光伏回收网
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#services">回收服务</a></li>
+                    <li><a href="#process">处理流程</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-contact">
+                <div class="phone-number">400-888-XXXX</div>
+                <a href="#quote" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">立即报价</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>专业太阳能组件板回收<br>变废为宝，绿色循环</h1>
+            <p>提供一站式光伏废料处理解决方案，高效拆解硅片、银浆与玻璃，符合环保标准，助力您实现光伏电站资产增值。</p>
+            <div class="hero-buttons">
+                <a href="#quote" class="btn btn-primary">获取上门回收报价</a>
+                <a href="#services" class="btn btn-outline">了解回收技术</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>10年+</h3>
+                <p>行业经验</p>
+            </div>
+            <div class="stat-item">
+                <h3>50k+</h3>
+                <p>处理组件数量</p>
+            </div>
+            <div class="stat-item">
+                <h3>99%</h3>
+                <p>资源利用率</p>
+            </div>
+            <div class="stat-item">
+                <h3>ISO</h3>
+                <p>环保认证</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>标准化回收流程</h2>
+                <p>从上门评估到环保处置，全流程透明可控</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-icon">1</div>
+                    <h3>免费上门评估</h3>
+                    <p>专业工程师现场勘查，根据组件类型、朝向及损坏程度，提供精准报价。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">2</div>
+                    <h3>安全打包运输</h3>
+                    <p>使用专业防尘防震包装，签署环保运输协议，确保运输过程无二次污染。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">3</div>
+                    <h3>专业拆解处理</h3>
+                    <p>在环保车间进行自动化拆解，分离玻璃、铝边框、硅片及背板等材料。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">4</div>
+                    <h3>资源再生利用</h3>
+                    <p>高纯度硅片及贵金属（银、铜）进入再生冶炼环节，实现资源闭环。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心回收业务</h2>
+                <p>覆盖各类光伏组件类型，提供多元化回收方案</p>
+            </div>
+            <div class="service-grid">
+                <article class="service-card">
+                    <div class="service-icon">🔋</div>
+                    <h3>单晶/多晶组件回收</h3>
+                    <p>针对老旧、故障或衰减严重的光伏板进行整体回收，最大化材料价值。</p>
+                    <ul class="service-list">
+                        <li>功率检测与分选</li>
+                        <li>整体拆解与破碎</li>
+                        <li>光伏玻璃回收</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">💎</div>
+                    <h3>硅片与碎片提纯</h3>
+                    <p>利用物理或化学方法，将废旧组件中的硅片提纯至多晶硅料标准。</p>
+                    <ul class="service-list">
+                        <li>电池片碎片回收</li>
+                        <li>硅料提纯再造</li>
+                        <li>降低生产成本</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">⚗️</div>
+                    <h3>银浆与贵金属回收</h3>
+                    <p>从电池片栅线中提取高纯度银粉及铜、铝等有价金属，变废为宝。</p>
+                    <ul class="service-list">
+                        <li>银浆化学提纯</li>
+                        <li>贵金属分析检测</li>
+                        <li>符合环保排放标准</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section id="quote" class="quote-section">
+        <div class="container">
+            <div class="quote-box">
+                <div class="quote-text">
+                    <h2>需要回收光伏组件板？</h2>
+                    <p>填写下方表格，我们的专业团队将在24小时内联系您，提供免费上门评估与最优报价方案。</p>
+                </div>
+                <form class="quote-form" onsubmit="event.preventDefault(); alert('感谢您的提交！我们的客服人员将尽快联系您。');">
+                    <div class="form-group">
+                        <label for="name">您的姓名</label>
+                        <input type="text" id="name" placeholder="请输入姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">联系电话</label>
+                        <input type="tel" id="phone" placeholder="请输入手机号码" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">组件类型</label>
+                        <select id="type">
+                            <option value="single">单晶硅组件</option>
+                            <option value="poly">多晶硅组件</option>
+                            <option value="broken">电池片碎片</option>
+                            <option value="other">其他/混合</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">立即获取报价</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container faq-container">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+                <p>关于太阳能组件板回收的疑问与解答</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">废旧光伏板属于危险废物吗？</div>
+                <div class="faq-answer">
+                    <p>废弃光伏组件属于一般工业固体废物，但其中含有玻璃、金属和塑料等可回收资源。正规回收处理厂会按照环保要求进行拆解，避免有害物质（如背板中的氟化物）对环境造成污染。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">回收价格是如何计算的？</div>
+                <div class="faq-answer">
+                    <p>回收价格主要取决于组件的当前市场功率、品牌、硅片类型（单晶/多晶）以及组件的物理状态（是否破损、有无背板脱落）。我们会根据当日硅料及金属市场价格进行实时评估。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">上门回收需要支付费用吗？</div>
+                <div class="faq-answer">
+                    <p>对于数量较大（通常超过10kWp）或距离较近的回收需求，我们提供免费的上门评估和运输服务。具体政策请咨询我们的客服人员。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">回收后的组件去向哪里？</div>
+                <div class="faq-answer">
+                    <p>回收的组件会进行物理拆解。玻璃经清洗后可再次用于建材或光伏玻璃制造；铝边框可熔炼成铝锭；硅片和电池片碎片经提纯后可作为原料返回光伏产业链，实现循环经济。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: #fff; margin-bottom: 20px; display: inline-block;">
+                        <span>☀</span> 光伏回收网
+                    </a>
+                    <p>专注光伏产业循环经济，致力于解决退役光伏组件的环境与资源问题。我们承诺全程环保合规，让绿色能源可持续发展。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">回收流程</a></li>
+                        <li><a href="#">成功案例</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务项目</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">光伏板整体回收</a></li>
+                        <li><a href="#">电池片碎片处理</a></li>
+                        <li><a href="#">银浆化学提纯</a></li>
+                        <li><a href="#">光伏电站拆除</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul class="footer-links">
+                        <li>📞 400-888-XXXX</li>
+                        <li>📧 service@solar-recycle.com</li>
+                        <li>📍 北京市朝阳区光伏产业园A座</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 光伏回收网 版权所有 | 京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+          </html>
