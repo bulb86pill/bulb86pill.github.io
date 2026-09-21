@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="转区查询工具，提供各大游戏服务器地区归属查询、延迟测试及跨服匹配服务。支持国服、台服、日服及亚服服务器状态实时监测。">
+    <meta name="keywords" content="转区查询,游戏服务器查询,延迟测试,国服查询,跨服匹配">
+    <title>转区查询-游戏服务器归属与延迟实时监测平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border: #e2e8f0;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span { color: var(--text-main); }
+
+        nav ul { display: flex; gap: 2rem; }
+        nav a { font-weight: 500; color: var(--text-sub); }
+        nav a:hover, nav a.active { color: var(--primary); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Search Panel */
+        .search-panel {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus { border-color: var(--primary); }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover { background-color: var(--primary-dark); }
+
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .tag:hover { border-color: var(--primary); background: #dbeafe; }
+
+        /* Result Area */
+        .result-area {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .server-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .server-info h3 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+        .server-meta { color: var(--text-sub); font-size: 0.9rem; display: flex; gap: 1rem; align-items: center; }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
+            font-weight: 600;
+        }
+
+        .status-online { background: #dcfce7; color: #166534; }
+        .status-offline { background: #fee2e2; color: #991b1b; }
+
+        .ping-display {
+            text-align: right;
+            min-width: 120px;
+        }
+
+        .ping-value { font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
+        .ping-label { font-size: 0.75rem; color: var(--text-sub); }
+
+        .ping-low { color: var(--success); }
+        .ping-med { color: var(--warning); }
+        .ping-high { color: #ef4444; }
+
+        .action-btn {
+            background: var(--bg-body);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+
+        .action-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bg-body);
+        }
+
+        .guide-list li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .guide-list li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { color: var(--primary); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 3rem 1.5rem;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-sub);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li { margin-bottom: 0.5rem; }
+        .footer-col a:hover { color: var(--primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+            .header-inner { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 1rem; font-size: 0.9rem; }
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span>转区查询</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">国服</a></li>
+                <li><a href="#">台服</a></li>
+                <li><a href="#">日服</a></li>
+                <li><a href="#">亚服</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>快速查询游戏服务器归属</h1>
+        <p>输入角色ID或服务器名称，实时获取跨服匹配信息、延迟数据及转区状态，助您精准选择最优服务器。</p>
+    </section>
+
+    <div class="container">
+        <!-- Left Column -->
+        <section class="content">
+            <div class="search-panel">
+                <div class="input-group">
+                    <input type="text" id="serverInput" class="search-input" placeholder="请输入服务器名称（如：电信一区）或角色ID...">
+                    <button class="btn-primary" onclick="performSearch()">开始查询</button>
+                </div>
+                <div class="quick-links">
+                    <span style="margin-right: 0.5rem; color: var(--text-sub);">热门查询:</span>
+                    <span class="tag" onclick="setInput('电信一区')">电信一区</span>
+                    <span class="tag" onclick="setInput('电信二区')">电信二区</span>
+                    <span class="tag" onclick="setInput('网通一区')">网通一区</span>
+                    <span class="tag" onclick="setInput('B服')">B服</span>
+                    <span class="tag" onclick="setInput('Steam')">Steam</span>
+                </div>
+            </div>
+
+            <div id="resultArea" class="result-area">
+                <h2 style="margin-bottom: 1rem; font-size: 1.5rem;">查询结果</h2>
+                
+                <div class="server-card">
+                    <div class="server-info">
+                        <h3>电信一区 - 繁花</h3>
+                        <div class="server-meta">
+                            <span>地区：华东</span>
+                            <span>大区类型：官方服</span>
+                            <span>当前状态：<span class="status-badge status-online">在线</span></span>
+                        </div>
+                    </div>
+                    <div class="ping-display">
+                        <div class="ping-value ping-low">24ms</div>
+                        <div class="ping-label">延迟测试</div>
+                    </div>
+                    <button class="action-btn" onclick="showToast('已为您生成转区匹配方案')">查看转区方案</button>
+                </div>
+
+                <div class="server-card">
+                    <div class="server-info">
+                        <h3>网通一区 - 剑啸</h3>
+                        <div class="server-meta">
+                            <span>地区：华北</span>
+                            <span>大区类型：官方服</span>
+                            <span>当前状态：<span class="status-badge status-online">在线</span></span>
+                        </div>
+                    </div>
+                    <div class="ping-display">
+                        <div class="ping-value ping-med">68ms</div>
+                        <div class="ping-label">延迟测试</div>
+                    </div>
+                    <button class="action-btn" onclick="showToast('已为您生成转区匹配方案')">查看转区方案</button>
+                </div>
+
+                <div class="server-card">
+                    <div class="server-info">
+                        <h3>Steam跨服 - 镜湖</h3>
+                        <div class="server-meta">
+                            <span>地区：国际</span>
+                            <span>大区类型：Steam服</span>
+                            <span>当前状态：<span class="status-badge status-offline">维护中</span></span>
+                        </div>
+                    </div>
+                    <div class="ping-display">
+                        <div class="ping-value ping-high">-</div>
+                        <div class="ping-label">延迟测试</div>
+                    </div>
+                    <button class="action-btn" disabled style="opacity: 0.5; cursor: not-allowed;">暂不可用</button>
+                </div>
+            </div>
+            
+            <div id="emptyState" style="text-align: center; padding: 3rem; color: var(--text-sub);">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <p>请输入服务器信息进行查询</p>
+            </div>
+        </section>
+
+        <!-- Right Column -->
+        <aside>
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">转区指南</h3>
+                <ul class="guide-list">
+                    <li><strong>查询归属：</strong>输入服务器名确认当前大区及地理位置。</li>
+                    <li><strong>延迟测试：</strong>选择目标大区，查看实时网络延迟。</li>
+                    <li><strong>转区限制：</strong>部分游戏限制等级、职业或转服次数。</li>
+                    <li><strong>资产转移：</strong>确认转移规则，避免数据丢失。</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">常见问题 (FAQ)</h3>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">转区需要满足什么条件？ <span>+</span></div>
+                    <div class="faq-answer">通常需要角色等级达到要求，且当前服务器处于开放状态，无未处理的转服申请。</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">跨服匹配会影响账号安全吗？ <span>+</span></div>
+                    <div class="faq-answer">正规的转区匹配是通过官方接口进行，请勿相信第三方非官方工具，以免账号被盗。</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">查询结果延迟多久更新？ <span>+</span></div>
+                    <div class="faq-answer">服务器状态数据每5分钟自动同步一次，确保信息准确。</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于转区查询</h4>
+            <p style="font-size: 0.9rem;">我们致力于为玩家提供最准确、最便捷的游戏服务器归属查询服务，帮助您找到最舒适的游戏环境。</p>
+        </div>
+        <div class="footer-col">
+            <h4>快速链接</h4>
+            <ul>
+                <li><a href="#">服务条款</a></li>
+                <li><a href="#">隐私政策</a></li>
+                <li><a href="#">API接口</a></li>
+                <li><a href="#">联系站长</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>服务支持</h4>
+            <ul>
+                <li><a href="#">查询帮助</a></li>
+                <li><a href="#">常见问题</a></li>
+                <li><a href="#">反馈建议</a></li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 2rem; font-size: 0.85rem;">
+        &copy; 2023 转区查询平台 版权所有
+    </div>
+</footer>
+
+<script>
+    // 简单的交互逻辑
+    function setInput(text) {
+        document.getElementById('serverInput').value = text;
+    }
+
+    function performSearch() {
+        const input = document.getElementById('serverInput').value;
+        const resultArea = document.getElementById('resultArea');
+        const emptyState = document.getElementById('emptyState');
+        
+        if (input.trim() === "") {
+            showToast("请输入服务器名称");
+            return;
+        }
+
+        // 模拟加载效果
+        const btn = document.querySelector('.btn-primary');
+        const originalText = btn.innerText;
+        btn.innerText = "查询中...";
+        btn.disabled = true;
+
+        setTimeout(() => {
+            resultArea.style.display = 'block';
+            emptyState.style.display = 'none';
+            btn.innerText = originalText;
+            btn.disabled = false;
+            // 滚动到结果区域
+            resultArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 800);
+    }
+
+    function toggleFaq(element) {
+        element.classList.toggle('active');
+        const span = element.querySelector('.faq-question span');
+        span.innerText = element.classList.contains('active') ? "-" : "+";
+    }
+
+    function showToast(message) {
+        // 创建一个简单的toast提示
+        const toast = document.createElement('div');
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.left = '50%';
+        toast.style.transform = 'translateX(-50%)';
+        toast.style.background = 'rgba(0,0,0,0.8)';
+        toast.style.color = 'white';
+        toast.style.padding = '10px 20px';
+        toast.style.borderRadius = '8px';
+        toast.style.zIndex = '1000';
+        toast.innerText = message;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.remove();
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
