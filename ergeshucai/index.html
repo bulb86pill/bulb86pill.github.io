@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="儿歌蔬菜歌大全 - 提供经典儿童水果蔬菜儿歌视频、歌词大全及互动学习资源。帮助宝宝认识蔬菜，养成健康饮食习惯，寓教于乐。">
+    <meta name="keywords" content="儿歌蔬菜歌,儿童歌曲,水果蔬菜歌,早教儿歌,宝宝学歌,健康饮食儿歌">
+    <title>儿歌蔬菜歌-宝宝健康饮食启蒙与趣味儿歌大全</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-green: #4CAF50;
+            --dark-green: #2E7D32;
+            --light-green: #E8F5E9;
+            --accent-yellow: #FFC107;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-color: #F9FBF9;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--dark-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: var(--primary-green);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-green);
+        }
+
+        .search-btn {
+            background: var(--light-green);
+            color: var(--dark-green);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: var(--dark-green);
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.8);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--dark-green);
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Title */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: var(--text-dark);
+            border-left: 5px solid var(--primary-green);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-link {
+            color: var(--primary-green);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Song Grid */
+        .song-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .song-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid #eee;
+        }
+
+        .song-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .card-thumb {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .song-card:hover .card-thumb img {
+            transform: scale(1.05);
+        }
+
+        .play-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(76, 175, 80, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+
+        .song-card:hover .play-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .card-meta {
+            font-size: 13px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .meta-tag {
+            background: var(--light-green);
+            color: var(--dark-green);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* Feature Section (Why Learn) */
+        .feature-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-top: 60px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-green);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--primary-green);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Lyrics Section */
+        .lyrics-section {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--radius);
+            margin-top: 60px;
+            box-shadow: var(--card-shadow);
+            border-left: 5px solid var(--accent-yellow);
+        }
+
+        .lyrics-content {
+            background: #FFFAF0;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 15px;
+            color: #555;
+            white-space: pre-line;
+            line-height: 2;
+        }
+
+        .lyrics-title {
+            font-size: 20px;
+            color: #D84315;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 50px 20px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: var(--primary-green);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 13px;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span>儿歌</span> 蔬菜歌
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#list">歌曲列表</a></li>
+                    <li><a href="#lyrics">歌词大全</a></li>
+                    <li><a href="#guide">育儿指南</a></li>
+                </ul>
+            </nav>
+            <div class="search-btn">🔍 搜索儿歌</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>快乐学蔬菜，健康好习惯</h1>
+                <p>精选最受欢迎的儿歌蔬菜歌，通过朗朗上口的旋律，帮助宝宝认识各种蔬菜，爱上健康饮食。</p>
+                <div class="hero-tags">
+                    <span class="tag">🍎 苹果香蕉</span>
+                    <span class="tag">🥕 胡萝卜</span>
+                    <span class="tag">🥦 西兰花</span>
+                    <span class="tag">🍅 番茄</span>
+                    <span class="tag">🥬 生菜</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Song List Section -->
+            <section id="list">
+                <div class="section-header">
+                    <h2 class="section-title">热门儿歌推荐</h2>
+                    <a href="#" class="section-link">查看全部 &rarr;</a>
+                </div>
+
+                <div class="song-grid">
+                    <!-- Card 1 -->
+                    <article class="song-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/carrot/400/300" alt="胡萝卜歌封面">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">小兔子乖乖吃胡萝卜</h3>
+                            <div class="card-meta">
+                                <span class="meta-tag">节奏欢快</span>
+                                <span>时长: 1:30</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="song-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/apple/400/300" alt="水果蔬菜歌封面">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">水果蔬菜歌</h3>
+                            <div class="card-meta">
+                                <span class="meta-tag">百科学习</span>
+                                <span>时长: 2:15</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="song-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/pepper/400/300" alt="青椒歌封面">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">绿青椒红辣椒</h3>
+                            <div class="card-meta">
+                                <span class="meta-tag">色彩认知</span>
+                                <span>时长: 1:45</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="song-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/eggplant/400/300" alt="茄子歌封面">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">茄子紫紫紫</h3>
+                            <div class="card-meta">
+                                <span class="meta-tag">颜色认知</span>
+                                <span>时长: 1:20</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="song-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/onion/400/300" alt="洋葱歌封面">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">洋葱圈圈大</h3>
+                            <div class="card-meta">
+                                <span class="meta-tag">形状认知</span>
+                                <span>时长: 1:10</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="song-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/cabbage/400/300" alt="大白菜封面">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">大白菜大白菜</h3>
+                            <div class="card-meta">
+                                <span class="meta-tag">生活常识</span>
+                                <span>时长: 1:25</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Why Learn Section -->
+            <section class="feature-section">
+                <div class="section-header">
+                    <h2 class="section-title">为什么要听蔬菜歌？</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌱</div>
+                        <h3>认识颜色与形状</h3>
+                        <p>通过鲜艳的色彩和不同的形状，帮助宝宝建立初步的视觉认知。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">😋</div>
+                        <h3>改善挑食习惯</h3>
+                        <p>将蔬菜拟人化，用有趣的故事吸引宝宝，减少对陌生蔬菜的抗拒。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎵</div>
+                        <h3>培养语言能力</h3>
+                        <p>儿歌韵律感强，重复的歌词有助于宝宝记忆词汇和句子。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💪</div>
+                        <h3>促进身体健康</h3>
+                        <p>了解蔬菜的营养价值，从小树立“多吃蔬菜身体棒”的健康观念。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lyrics Section -->
+            <section id="lyrics" class="lyrics-section">
+                <div class="section-header">
+                    <h2 class="section-title">歌词精选：蔬菜歌</h2>
+                </div>
+                <div class="lyrics-content">
+                    <div class="lyrics-title">《蔬菜歌》</div>
+                    
+                    大萝卜，圆又圆，
+                    长在泥土看不见。
+                    拔呀拔，拔呀拔，
+                    拔出一个大萝卜。
+                    
+                    大白菜，绿油油，
+                    一层一层包肉肉。
+                    咱们宝宝不爱吃，
+                    营养身体都没有。
+                    
+                    大茄子，紫溜溜，
+                    像个小手在招手。
+                    大辣椒，红通通，
+                    咱们宝宝喜洋洋。
+                    
+                    红萝卜，白萝卜，
+                    蘸上酱料真好吃。
+                    多吃蔬菜身体好，
+                    爸爸妈妈笑哈哈。
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section style="margin-top: 60px;">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题</h2>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+                    <details style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                        <summary style="font-weight: bold; cursor: pointer; color: var(--text-dark);">宝宝多大适合听蔬菜歌？</summary>
+                        <p style="margin-top: 10px; color: var(--text-light);">通常建议从6个月大开始接触简单的儿歌，2-3岁是语言爆发期，适合通过蔬菜歌学习词汇和认知。</p>
+                    </details>
+                    <details style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                        <summary style="font-weight: bold; cursor: pointer; color: var(--text-dark);">如何利用蔬菜歌纠正挑食？</summary>
+                        <p style="margin-top: 10px; color: var(--text-light);">家长可以先在吃饭时播放相关歌曲，将蔬菜拟人化（如“茄子弟弟饿了”），并在餐桌上进行角色扮演互动。</p>
+                    </details>
+                    <details style="border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                        <summary style="font-weight: bold; cursor: pointer; color: var(--text-dark);">除了听歌，还有什么方法？</summary>
+                        <p style="margin-top: 10px; color: var(--text-light);">可以带宝宝去菜市场或农场，让孩子亲手触摸、闻气味，或者用蔬菜做简单的手工，增加亲近感。</p>
+                    </details>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">
+                    <span>儿歌</span> 蔬菜歌
+                </div>
+                <p style="font-size: 14px; color: #bdc3c7;">专注0-6岁儿童早教内容，提供优质儿歌、绘本及育儿知识，陪伴孩子快乐成长。</p>
+            </div>
+            <div class="footer-col">
+                <h4>儿歌分类</h4>
+                <ul>
+                    <li><a href="#">中文儿歌</a></li>
+                    <li><a href="#">英文儿歌</a></li>
+                    <li><a href="#">数学逻辑</a></li>
+                    <li><a href="#">情绪管理</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>亲子育儿</h4>
+                <ul>
+                    <li><a href="#">挑食怎么办</a></li>
+                    <li><a href="#">入园准备</a></li>
+                    <li><a href="#">绘本推荐</a></li>
+                    <li><a href="#">亲子游戏</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">合作投稿</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 儿歌蔬菜歌大全. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
