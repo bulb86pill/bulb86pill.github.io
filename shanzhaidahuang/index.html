@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="山寨大黄鸭官方主页，提供经典黄色橡胶鸭、充气玩具、户外摆件及趣味周边产品的选购指南、产品展示与购买服务。">
+    <meta name="keywords" content="山寨大黄鸭,黄色橡胶鸭,充气玩具,户外摆件,橡皮鸭">
+    <title>山寨大黄鸭-趣味充气玩具与户外摆件选购指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #f9c742; /* 大黄鸭黄 */
+            --primary-dark: #e0a020;
+            --accent-color: #2c3e50;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f4f6f8;
+            --bg-white: #ffffff;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --radius-md: 8px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .section-desc {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-dark);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background-color: rgba(249, 199, 66, 0.15);
+            color: var(--primary-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            transform: rotate(-2deg);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Product Showcase */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 220px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        /* Usage Guide */
+        .guide-section {
+            background-color: var(--bg-white);
+        }
+
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 2rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid #eee;
+        }
+
+        .step-item:last-child {
+            border-left: 2px solid transparent;
+        }
+
+        .step-number {
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        .step-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .step-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--bg-white);
+            margin-bottom: 1rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--accent-color);
+            background-color: #fff;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 1.2rem;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 1.2rem;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--accent-color);
+            color: #ecf0f1;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-brand p {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin: 1rem 0;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10Z" />
+                </svg>
+                山寨大黄鸭 <span>官方旗舰店</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#products">热门产品</a></li>
+                    <li><a href="#guide">使用指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="#products" class="btn btn-outline">浏览款式</a>
+                <a href="#" class="btn btn-primary">立即选购</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <div class="hero-tags">
+                        <span class="tag">经典复刻</span>
+                        <span class="tag">户外摆件</span>
+                        <span class="tag">趣味周边</span>
+                    </div>
+                    <h1>找回童年的快乐<br>身边的“大黄鸭”</h1>
+                    <p>无论是作为儿童房里的陪伴玩偶，还是公园、泳池边的趣味摆件，我们的高品质橡胶鸭都能为您带来轻松愉悦的视觉体验。正品材质，安全环保。</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start;">
+                        <a href="#products" class="btn btn-primary">查看热销款式</a>
+                        <a href="#guide" class="btn btn-outline">了解如何选购</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder for a cute yellow rubber duck -->
+                    <img src="https://picsum.photos/seed/duckhero/600/450" alt="经典黄色橡胶大黄鸭玩具">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🦆</div>
+                        <h3>经典造型</h3>
+                        <p>完美复刻原版大黄鸭的经典黄色橡胶质感，圆润可爱的造型设计，深受各年龄层喜爱。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>安全材质</h3>
+                        <p>采用食品级环保橡胶制成，无毒无味，耐老化，通过严格的安全检测标准。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌊</div>
+                        <h3>多场景适用</h3>
+                        <p>适合儿童泳池玩耍、户外草地装饰、浴室防滑，甚至可作为婚礼和派对的主题道具。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="section" style="background-color: #f9f9f9;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">热门款式推荐</h2>
+                    <p class="section-desc">从迷你手持款到巨型充气摆件，总有一款适合您的需求</p>
+                </div>
+
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/seed/duck1/400/300" alt="迷你手持橡胶鸭">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">儿童玩具</span>
+                            <h3 class="product-title">经典迷你橡胶鸭</h3>
+                            <p class="product-desc">小巧可爱，适合幼儿抓握玩耍，洗澡时的好伴侣。</p>
+                            <div class="product-meta">
+                                <span class="product-price">¥12.9</span>
+                                <a href="#" class="btn btn-outline btn-sm">详情</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/seed/duck2/400/300" alt="充气巨型大黄鸭">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">户外摆件</span>
+                            <h3 class="product-title">充气巨型摆件 (1.5米)</h3>
+                            <p class="product-desc">公园、泳池必备，可充气设计，色彩鲜艳，吸睛效果极佳。</p>
+                            <div class="product-meta">
+                                <span class="product-price">¥299.0</span>
+                                <a href="#" class="btn btn-outline btn-sm">详情</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/seed/duck3/400/300" alt="创意造型鸭">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">创意周边</span>
+                            <h3 class="product-title">Q版彩虹鸭套装</h3>
+                            <p class="product-desc">多种颜色可选，适合情侣互赠或作为趣味办公桌摆件。</p>
+                            <div class="product-meta">
+                                <span class="product-price">¥45.0</span>
+                                <a href="#" class="btn btn-outline btn-sm">详情</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/seed/duck4/400/300" alt="豪华礼盒装">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">节日礼品</span>
+                            <h3 class="product-title">节日限量礼盒装</h3>
+                            <p class="product-desc">精美包装，适合作为节日礼物送给朋友或孩子。</p>
+                            <div class="product-meta">
+                                <span class="product-price">¥68.0</span>
+                                <a href="#" class="btn btn-outline btn-sm">详情</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guide -->
+        <section id="guide" class="section guide-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">选购与使用指南</h2>
+                    <p class="section-desc">如何挑选适合您的“山寨大黄鸭”</p>
+                </div>
+
+                <div class="guide-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h3>确定使用场景</h3>
+                        <p>如果您主要用于儿童洗澡玩耍，建议选择重量较轻、手感柔软的迷你款；如果是作为户外草坪装饰，建议选择充气式的大尺寸款式，视觉效果更佳。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h3>检查材质与安全</h3>
+                        <p>购买时请查看产品说明，确保材质为环保橡胶或PVC，无异味。对于儿童玩具，务必确认符合国家安全标准（如3C认证）。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h3>保养与清洁</h3>
+                        <p>橡胶制品应避免长时间暴晒，以免老化变脆。清洗时使用清水冲洗即可，避免使用强酸强碱清洁剂。充气摆件使用后请排空气体妥善保存。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题解答</h2>
+                    <p class="section-desc">关于山寨大黄鸭的疑问解答</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            山寨大黄鸭和原版有什么区别？
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>山寨版通常指非官方授权但造型相似的产品。我们的产品在造型上保留了经典元素，但在材质选择和做工细节上进行了优化，更加注重性价比和耐用性，同时严格保证安全环保标准。</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            巨型充气大黄鸭容易漏气吗？
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>我们的充气产品采用加厚材质和专业的气阀设计，正常使用和存放条件下具有良好的气密性。建议在充气时不要过度充气，并避免尖锐物体划伤表面。</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            产品适合多大的孩子使用？
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>迷你橡胶鸭适合3岁以上的儿童。充气摆件主要作为装饰或成人娱乐使用，不建议婴幼儿直接啃咬，请在大人监护下使用。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>山寨大黄鸭</h2>
+                    <p>专注于提供高品质、高性价比的趣味橡胶玩具与摆件。让快乐触手可及。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品分类</h4>
+                    <ul>
+                        <li><a href="#">迷你玩具</a></li>
+                        <li><a href="#">充气摆件</a></li>
+                        <li><a href="#">创意周边</a></li>
+                        <li><a href="#">节日限定</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客户服务</h4>
+                    <ul>
+                        <li><a href="#">购买指南</a></li>
+                        <li><a href="#">售后政策</a></li>
+                        <li><a href="#">尺码对照</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">隐私条款</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 山寨大黄鸭官方旗舰店 版权所有.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+                          </html>
